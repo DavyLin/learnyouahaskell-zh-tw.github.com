@@ -34,7 +34,7 @@
                     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
             })();
         </script>
-        <title>模组(Modules)</title>
+        <title>模组 (Modules)</title>
     </head>
     <body>
         <div id="header">
@@ -45,9 +45,9 @@
             <ul class="nav">
                 <li class="left">  <img src="../img/prv.png"></img><a href="high-order-function.html">高阶函数</a></li>
                 <li class="center"><a href="chapters.html">Index</a></li>
-                <li class="right"> <a href="make-types-and-classes-for-ourselves.html">构造我们自己的Types和Typeclasses</a><img src="../img/nxt.png"></img></li>
+                <li class="right"> <a href="make-types-and-classes-for-ourselves.html">构造我们自己的 Types 和 Typeclasses</a><img src="../img/nxt.png"></img></li>
             </ul>
-            <a name="模组(Modules)"></a><h1>模组(Modules)</h1><a name="装载模组"></a><h2>装载模组</h2><img src="../img/modules.png" style="float:right"></img><p>Haskell 中的模组是含有一组相关的函数，型别和型别类的组合。而 Haskell 程序的本质便是从主模组中引用其它模组并呼叫其中的函数来执行操作。这样可以把程式码分成多块，只要一个模组足够的独立，它里面的函数便可以被不同的程序反复重用。这就让不同的程式码各司其职，提高了程式码的健壮性。</p><p>Haskell 的标准库就是一组模组，每个模组都含有一组功能相近或相关的函数和型别。有处理 List 的模组，有处理并发的模组，也有处理复数的模组，等等。目前为止我们谈及的所有函数,型别以及型别类都是<code>Prelude</code>模组的一部分，它预设自动装载。在本章，我们看一下几个常用的模组，在开始浏览其中的函数之前，我们先得知道如何装载模组.</p><p>在 Haskell中，装载模组的语法为<code>import</code>，这必须得在函数的定义之前，所以一般都是将它置于程式码的顶部。无疑，一段程式码中可以装载很多模组，只要将<code>import</code>语句分行写开即可。装载<code>Data.List</code>试下，它里面有很多实用的 List 处理函数.</p><p>执行<code>import Data.List</code>，这样一来<code>Data.List</code>中包含的所有函数就都进入了全局命名空间。也就是说，你可以在程式码的任意位置呼叫这些函数.<code>Data.List</code>模组中有个<code>nub</code>函数，它可以筛掉一个 List 中的所有重复元素。用点号将<code>length</code>和<code>nub</code>组合:<code>length 。nub</code>，即可得到一个与<code>(\xs -> length (nub xs))</code>等价的函数。</p><pre class="code">import Data.List  
+            <a name="模组 (Modules)"></a><h1>模组 (Modules)</h1><a name="装载模组"></a><h2>装载模组</h2><img src="../img/modules.png" style="float:right"></img><p>Haskell 中的模组是含有一组相关的函数，型别和型别类的组合。而 Haskell 程序的本质便是从主模组中引用其它模组并呼叫其中的函数来执行操作。这样可以把程式码分成多块，只要一个模组足够的独立，它里面的函数便可以被不同的程序反复重用。这就让不同的程式码各司其职，提高了程式码的健壮性。</p><p>Haskell 的标准库就是一组模组，每个模组都含有一组功能相近或相关的函数和型别。有处理 List 的模组，有处理并发的模组，也有处理复数的模组，等等。目前为止我们谈及的所有函数,型别以及型别类都是<code>Prelude</code>模组的一部分，它预设自动装载。在本章，我们看一下几个常用的模组，在开始浏览其中的函数之前，我们先得知道如何装载模组.</p><p>在 Haskell中，装载模组的语法为<code>import</code>，这必须得在函数的定义之前，所以一般都是将它置于程式码的顶部。无疑，一段程式码中可以装载很多模组，只要将<code>import</code>语句分行写开即可。装载<code>Data.List</code>试下，它里面有很多实用的 List 处理函数.</p><p>执行<code>import Data.List</code>，这样一来<code>Data.List</code>中包含的所有函数就都进入了全局命名空间。也就是说，你可以在程式码的任意位置呼叫这些函数.<code>Data.List</code>模组中有个<code>nub</code>函数，它可以筛掉一个 List 中的所有重复元素。用点号将<code>length</code>和<code>nub</code>组合:<code>length 。nub</code>，即可得到一个与<code>(\xs -> length (nub xs))</code>等价的函数。</p><pre class="code">import Data.List  
   
 numUniques :: (Eq a) => [a] -> Int  
 numUniques = length 。nub</pre><p>你也可以在 ghci 中装载模组，若要呼叫<code>Data.List</code>中的函数，就这样:</p><pre class="code">ghci> :m Data.List</pre><p>若要在 ghci 中装载多个模组，不必多次<code>:m</code>命令，一下就可以全部搞定:</p><pre class="code">ghci> :m Data.List Data.Map Data.Set</pre><p>而你的程序中若已经有包含的程式码，就不必再用<code>:m</code>了.</p><p>如果你只用得到某模组的两个函数，大可仅包含它俩。若仅装载<code>Data.List</code>模组<code>nub</code>和<code>sort</code>，就这样:</p><pre class="code">import Data.List (nub，sort)</pre><p>也可以只包含除去某函数之外的其它函数，这在避免多个模组中函数的命名冲突很有用。假设我们的程式码中已经有了一个叫做<code>nub</code>的函数，而装入<code>Data.List</code>模组时就要把它里面的<code>nub</code>除掉.</p><pre class="code">import Data.List hiding (nub)</pre><p>避免命名冲突还有个方法，便是<code>qualified import</code>，<code>Data.Map</code>模组提供一了一个按键索值的资料结构，它里面有几个和<code>Prelude</code>模组重名的函数。如<code>filter</code>和<code>null</code>，装入<code>Data.Map</code>模组之后再呼叫<code>filter</code>，Haskell 就不知道它究竟是哪个函数。如下便是解决的方法:</p><pre class="code">import qualified Data.Map</pre><p>这样一来，再呼叫<code>Data.Map</code>中的<code>filter</code>函数，就必须得<code>Data.Map.filter</code>，而<code>filter</code>依然是为我们熟悉喜爱的样子。但是要在每个函数前面都加<code>个Data.Map</code>实在是太烦人了! 那就给它起个别名，让它短些:</p><pre class="code">import qualified Data.Map as M</pre><p>好，再呼叫<code>Data.Map</code>模组的<code>filter</code>函数的话仅需<code>M.filter</code>就行了</p><p>要浏览所有的标准库模组，参考这个手册。翻阅标准库中的模组和函数是提升个人 Haskell 水平的重要途径。你也可以各个模组的原始码，这对 Haskell 的深入学习及掌握都是大有好处的.</p><p>检索函数或搜寻函数位置就用<a href="http://www.Haskell.org/hoogle/">Hoogle</a>，相当了不起的 Haskell 搜索引擎! 你可以用函数名，模组名甚至型别声明来作为检索的条件.</p><a name="Data.List"></a><h2>Data.List</h2><p>显而易见，<code>Data.List</code>是关于 List 操作的模组，它提供了一组非常有用的 List 处理函数。在前面我们已经见过了其中的几个函数(如<code>map</code>和<code>filter</code>)，这是<code>Prelude</code>模组出于方便起见，导出了几个<code>Data.List</code>里的函数。因为这几个函数是直接引用自<code>Data.List</code>，所以就无需使用<code>qulified import</code>。在下面，我们来看看几个以前没见过的函数:</p><p><strong>intersperse</strong>取一个元素与 List 作参数，并将该元素置于 List 中每对元素的中间。如下是个例子:</p><pre class="code">ghci> intersperse '.' "MONKEY"  
@@ -397,7 +397,7 @@ import qualified Geometry.Cube as Cube</pre><p>然后就可以呼叫<code>Sphere
             <ul class="nav">
                 <li class="left">  <img src="../img/prv.png"></img><a href="high-order-function.html">高阶函数</a></li>
                 <li class="center"><a href="chapters.html">Index</a></li>
-                <li class="right"> <a href="make-types-and-classes-for-ourselves.html">构造我们自己的Types和Typeclasses</a><img src="../img/nxt.png"></img></li>
+                <li class="right"> <a href="make-types-and-classes-for-ourselves.html">构造我们自己的 Types 和 Typeclasses</a><img src="../img/nxt.png"></img></li>
             </ul>
         </div>
         <div id="footer">

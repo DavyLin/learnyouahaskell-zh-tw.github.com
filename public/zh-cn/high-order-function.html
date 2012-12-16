@@ -45,7 +45,7 @@
             <ul class="nav">
                 <li class="left">  <img src="../img/prv.png"></img><a href="recursion.html">递回</a></li>
                 <li class="center"><a href="chapters.html">Index</a></li>
-                <li class="right"> <a href="modules.html">模组(Modules)</a><img src="../img/nxt.png"></img></li>
+                <li class="right"> <a href="modules.html">模组 (Modules)</a><img src="../img/nxt.png"></img></li>
             </ul>
             <a name="高阶函数"></a><h1>高阶函数</h1><img src="../img/sun.png" style="float:right"></img><p>Haskell 中的函数可以作为参数和回传值传来传去，这样的函数就被称作高阶函数。高阶函数可不只是某简单特性而已，它贯穿于 Haskell 的方方面面。要拒绝循环与状态的改变而通过定义问题"是什么"来解决问题，高阶函数必不可少。它们是编码的得力工具。</p><a name="Curried functions"></a><h2>Curried functions</h2><p>本质上，Haskell 的所有函数都只有一个参数，那么我们先前编那么多含有多个参数的函数又是怎么回事? 呵，小伎俩! 所有多个参数的函数都是 Curried functions。 什么意思呢? 取一个例子最好理解，就拿我们的好朋友<code>max</code>函数说事吧。它看起来像是取两个参数，回传较大的那个数。 实际上，执行<code>max 4 5</code>时，它会首先回传一个取一个参数的函数，其回传值不是 4 就是该参数，取决于谁大。 然后，以 5 为参数呼叫它，并取得最终结果。 这听著挺绕口的，不过这一概念十分的酷! 如下的两个呼叫是等价的：</p><pre class="code">ghci> max 4 5
 5
@@ -200,7 +200,7 @@ oddSquareSum =
             <ul class="nav">
                 <li class="left">  <img src="../img/prv.png"></img><a href="recursion.html">递回</a></li>
                 <li class="center"><a href="chapters.html">Index</a></li>
-                <li class="right"> <a href="modules.html">模组(Modules)</a><img src="../img/nxt.png"></img></li>
+                <li class="right"> <a href="modules.html">模组 (Modules)</a><img src="../img/nxt.png"></img></li>
             </ul>
         </div>
         <div id="footer">

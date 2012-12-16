@@ -45,7 +45,7 @@
             <ul class="nav">
                 <li class="left">  <img src="../img/prv.png"></img><a href="recursion.html">遞迴</a></li>
                 <li class="center"><a href="chapters.html">Index</a></li>
-                <li class="right"> <a href="modules.html">模組(Modules)</a><img src="../img/nxt.png"></img></li>
+                <li class="right"> <a href="modules.html">模組 (Modules)</a><img src="../img/nxt.png"></img></li>
             </ul>
             <a name="高階函數"></a><h1>高階函數</h1><img src="../img/sun.png" style="float:right"></img><p>Haskell 中的函數可以作為參數和回傳值傳來傳去，這樣的函數就被稱作高階函數。高階函數可不只是某簡單特性而已，它貫穿于 Haskell 的方方面面。要拒絶循環與狀態的改變而通過定義問題"是什麼"來解決問題，高階函數必不可少。它們是編碼的得力工具。</p><a name="Curried functions"></a><h2>Curried functions</h2><p>本質上，Haskell 的所有函數都只有一個參數，那麼我們先前編那麼多含有多個參數的函數又是怎麼回事? 呵，小伎倆! 所有多個參數的函數都是 Curried functions。 什麼意思呢? 取一個例子最好理解，就拿我們的好朋友<code>max</code>函數說事吧。它看起來像是取兩個參數，回傳較大的那個數。 實際上，執行<code>max 4 5</code>時，它會首先回傳一個取一個參數的函數，其回傳值不是 4 就是該參數，取決於誰大。 然後，以 5 為參數呼叫它，並取得最終結果。 這聽著挺繞口的，不過這一概念十分的酷! 如下的兩個呼叫是等價的：</p><pre class="code">ghci> max 4 5
 5
@@ -200,7 +200,7 @@ oddSquareSum =
             <ul class="nav">
                 <li class="left">  <img src="../img/prv.png"></img><a href="recursion.html">遞迴</a></li>
                 <li class="center"><a href="chapters.html">Index</a></li>
-                <li class="right"> <a href="modules.html">模組(Modules)</a><img src="../img/nxt.png"></img></li>
+                <li class="right"> <a href="modules.html">模組 (Modules)</a><img src="../img/nxt.png"></img></li>
             </ul>
         </div>
         <div id="footer">

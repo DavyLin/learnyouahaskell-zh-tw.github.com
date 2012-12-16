@@ -43,7 +43,7 @@
 
         <div id="main">
             <ul class="nav">
-                <li class="left">  <img src="../img/prv.png"></img><a href="make-types-and-classes-for-ourselves.html">構造我們自己的Types和Typeclasses</a></li>
+                <li class="left">  <img src="../img/prv.png"></img><a href="make-types-and-classes-for-ourselves.html">構造我們自己的 Types 和 Typeclasses</a></li>
                 <li class="center"><a href="chapters.html">Index</a></li>
                 <li class="right"> <a href="functionally-solving-problems.html">函數式地思考來解決問題</a><img src="../img/nxt.png"></img></li>
             </ul>
@@ -664,7 +664,7 @@ handler e
           thenTryThis `catch` handler2  
           launchRockets</pre><p>這邊<code>toTry</code>使用<code>handler1</code>當作handler，而<code>thenTryThis</code>用了<code>handler2</code>。<code>launchRockets</code>並不是<code>catch</code>的參數，所以如果有任何一個exception被丟出都會讓我們的程式當掉，除非<code>launchRockets</code>使用<code>catch</code>來處裡exception。當然<code>toTry</code>，<code>thenTryThis</code>跟<code>launchRockets</code>都是I/O actions，而且被do syntax綁在一起。這很像其他語言中的try-catch blocks，你可以把一小段程式用try-catch包住，你可以自己調整該包多少進去。</p><p>現在你知道如何處裡I/O exception了。我們並沒有提到如何從pure code中丟出exception，這是因為正如我們先前提到的，Haskell提供了更好的辦法來處裡錯誤。就算是在可能會失敗的I/O action中，我也傾向用<code>IO (Either a b)</code>，代表他們是I/O action，但當他們被執行，他們結果的型態是<code>Either a b</code>，意思是不是<code>Left a</code>就是<code>Right b</code>。</p>
             <ul class="nav">
-                <li class="left">  <img src="../img/prv.png"></img><a href="make-types-and-classes-for-ourselves.html">構造我們自己的Types和Typeclasses</a></li>
+                <li class="left">  <img src="../img/prv.png"></img><a href="make-types-and-classes-for-ourselves.html">構造我們自己的 Types 和 Typeclasses</a></li>
                 <li class="center"><a href="chapters.html">Index</a></li>
                 <li class="right"> <a href="functionally-solving-problems.html">函數式地思考來解決問題</a><img src="../img/nxt.png"></img></li>
             </ul>
