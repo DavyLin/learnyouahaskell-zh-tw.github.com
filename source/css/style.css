@@ -1,5 +1,12 @@
 * { margin: 0; padding: 0; }
 
+@font-face {
+  font-family: 'Cagliostro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Cagliostro Regular'), local('Cagliostro-Regular'), url(https://themes.googleusercontent.com/static/fonts/cagliostro/v2/5qK6q30V-_HR31DLH8yzpvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
+}
+
 body {
     font: normal 14px Arial,serif,Courier New,黑体;
 }
@@ -16,16 +23,19 @@ h2 {
 }
 
 p {
-    font: normal 14px Arial,serif;
+    font: normal 14px Cagliostro, "wenquanyi micro hei", Arial, serif;
     line-height: 25px;
     margin: 13px 0 13px 0;
 }
 
 p code {
     background: #eee;
-    font: normal 15px "Courier New",Arial,serif; 
+    font: normal 15px;
+    font-family: Monaco, "wenquanyi micro hei mono", "Courier New", "Consolas", monospace;
     overflow: auto;
-    padding: 0 3px 0 3px;
+    padding: 0 6px 0 6px;
+    margin: 0 6px 0 6px;
+    white-space: nowrap;
 }
 
 p strong {
@@ -33,7 +43,12 @@ p strong {
     color: #fff;
     font: normal 15px "Courier New", Arial,serif;
     padding: 2px 3px 2px 3px;
-    margin: 0 3px 3px 0;
+    margin: 0 3px 0 3px;
+}
+
+p b {
+    padding: 2px 3px 2px 3px;
+    margin: 0 3px 0 3px;
 }
 p img {
      vertical-align:middle;
@@ -43,9 +58,9 @@ img {
     padding: 20px;
 }
 
-pre.code{
+pre.code {
     background: #000;
-    font-family: "Courier New", "Consolas", monospace;
+    font-family: Monaco, "wenquanyi micro hei mono", "Courier New", "Consolas", monospace;
     font-size: 14px;
     
     color: #fff;
