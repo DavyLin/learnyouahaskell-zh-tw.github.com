@@ -47,7 +47,9 @@ p strong {
     padding: 2px 3px 2px 3px;
     margin: 0 3px 0 3px;
 }
-
+p a {
+    margin: 0px 3px;
+}
 p b {
     padding: 2px 3px 2px 3px;
 }
